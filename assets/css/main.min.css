@@ -16,7 +16,7 @@
 }
 
 .theme-btn {
-    background: linear-gradient(106deg, #2AD3F8 10.42%, #933CFF 98.32%);
+    background: linear-gradient(106deg, #140101 10.42%, #ffaa00 98.32%);
     color: var(--white);
     display: inline-block;
     font-size: 16px;
@@ -34,7 +34,7 @@
 
 .theme-btn::before {
     content: "";
-    background-color: var(--header);
+    background-color: var(--black);
     width: 0;
     height: 50%;
     position: absolute;
@@ -48,7 +48,7 @@
 
 .theme-btn::after {
     content: "";
-    background-color: var(--header);
+    background-color: var(--black);
     width: 0;
     height: 50%;
     position: absolute;
