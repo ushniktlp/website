@@ -2476,7 +2476,7 @@ span {
 }
 
 .footer-bottom .footer-wrapper p {
-    color: rgb(255 255 255 / .65)
+    color: black;
 }
 
 .footer-bottom .footer-wrapper .bottom-list {
@@ -2484,7 +2484,7 @@ span {
 }
 
 .footer-bottom .footer-wrapper .bottom-list li {
-    color: rgb(255 255 255 / .65)
+    color: black;
 }
 
 @media (max-width:1199px) {
