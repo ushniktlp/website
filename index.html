@@ -36,29 +36,32 @@
          <!-- Preloader Start -->
          <div id="preloader" class="preloader">
             <div class="animation-preloader">
-                <div class="spinner">                
+                <img src="assets/img/logo/loader.png" alt="logo" 
+                style="width: 100px; height: 100px; 
+                       animation: fadeInOut 2s infinite; 
+                       display: block; margin: 0 auto; 
+                       border-radius: 300px;">
+           
+                <div class="txt-loading" style="text-align: center;">
+                    <span data-text-preloader="U" class="letters-loading" style="animation: fadeInOut 2s infinite;">U</span>
+                    <span data-text-preloader="S" class="letters-loading" style="animation: fadeInOut 2s infinite 0.2s;">S</span>
+                    <span data-text-preloader="H" class="letters-loading" style="animation: fadeInOut 2s infinite 0.4s;">H</span>
+                    <span data-text-preloader="N" class="letters-loading" style="animation: fadeInOut 2s infinite 0.6s;">N</span>
+                    <span data-text-preloader="I" class="letters-loading" style="animation: fadeInOut 2s infinite 0.8s;">I</span>
+                    <span data-text-preloader="K" class="letters-loading" style="animation: fadeInOut 2s infinite 1s;">K</span>
                 </div>
-                <div class="txt-loading">
-                     <span data-text-preloader="U" class="letters-loading">
-                        U
-                    </span>
-                    <span data-text-preloader="S" class="letters-loading">
-                        S
-                    </span>
-                    <span data-text-preloader="H" class="letters-loading">
-                        H
-                    </span>
-                    <span data-text-preloader="N" class="letters-loading">
-                        N
-                    </span>
-                    <span data-text-preloader="I" class="letters-loading">
-                        I
-                    </span>
-                    <span data-text-preloader="K" class="letters-loading">
-                        K
-                    </span>
-                </div>
-                <p class="text-center">Loading</p>
+                
+                <p class="text-center" style="animation: fadeInOut 2s infinite; text-align: center;">Loading</p>
+                
+                <style>
+                @keyframes fadeInOut {
+                    0% { opacity: 0; }
+                    50% { opacity: 1; }
+                    100% { opacity: 0; }
+                }
+                </style>
+                
+                
             </div>
             <div class="loader">
                 <div class="row">
@@ -824,7 +827,7 @@
 </section>
 
         <!-- Testimonial Section Start -->
-        <section class="testimonial-section fix section-padding section-bg"> 
+        <!-- <section class="testimonial-section fix section-padding section-bg"> 
         <div class="container">
             <div class="section-title text-center">
                 <span class="wow fadeInUp">Our Testimonial</span>
@@ -915,7 +918,7 @@
         <div class="swiper-dot">
             <div class="dot2"></div>
         </div>
-        </section>
+        </section> -->
 
 
              <!-- Footer-section Start -->
