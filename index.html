@@ -30,6 +30,7 @@
         <link rel="stylesheet" href="assets/css/color.css">
         <!--<< Main.css >>-->
         <link rel="stylesheet" href="assets/css/main.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body>
 
@@ -1101,7 +1102,7 @@
         <script src="assets/js/wow.min.js"></script>
         <!--<< Main.js >>-->
         <script src="assets/js/main.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
 
     </body>
 
@@ -1109,12 +1110,12 @@
 </html>
 <script>
     document.getElementById("contact-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent form from reloading page
-        
+        event.preventDefault(); // Prevent page reload
+
         // Collect form data
         const formData = new FormData(this);
-        
-        // Send data via AJAX (fetch API)
+
+        // Send form data using AJAX (fetch API)
         fetch("https://formsubmit.co/ajax/ushnik.in@gmail.com", {
             method: "POST",
             body: formData
@@ -1122,13 +1123,29 @@
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                document.getElementById("response-message").innerText = "✅ Message sent successfully!";
+                Swal.fire({
+                    icon: "success",
+                    title: "Message Sent!",
+                    text: "Your message has been successfully sent.",
+                    confirmButtonColor: "#3085d6"
+                });
+                document.getElementById("contact-form").reset(); // Reset form
             } else {
-                document.getElementById("response-message").innerText = "❌ Error sending message.";
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops!",
+                    text: "Failed to send the message. Please try again.",
+                    confirmButtonColor: "#d33"
+                });
             }
         })
         .catch(error => {
-            document.getElementById("response-message").innerText = "⚠️ Network Error!";
+            Swal.fire({
+                icon: "warning",
+                title: "Network Error!",
+                text: "Please check your internet connection.",
+                confirmButtonColor: "#f39c12"
+            });
             console.error("Error:", error);
         });
     });
