@@ -792,7 +792,7 @@
                         <h3 class="wow fadeInUp" data-wow-delay=".5s">
                             Send Your Message!
                         </h3>
-                        <form action="https://formsubmit.co/ushnik.in@gmail.com" id="contact-form" method="POST" class="contact-form-items">
+                        <form  id="contact-form"  class="contact-form-items">
                             <div class="row g-4">
                                 <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
                                     <div class="form-clt">
@@ -828,6 +828,7 @@
                                 </div>
                             </div>
                         </form>
+                        <p id="response-message"></p>
                     </div>
                 </div>
             </div>
@@ -1106,3 +1107,29 @@
 
 
 </html>
+<script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form from reloading page
+        
+        // Collect form data
+        const formData = new FormData(this);
+        
+        // Send data via AJAX (fetch API)
+        fetch("https://formsubmit.co/ajax/ushnik.in@gmail.com", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById("response-message").innerText = "✅ Message sent successfully!";
+            } else {
+                document.getElementById("response-message").innerText = "❌ Error sending message.";
+            }
+        })
+        .catch(error => {
+            document.getElementById("response-message").innerText = "⚠️ Network Error!";
+            console.error("Error:", error);
+        });
+    });
+</script>
