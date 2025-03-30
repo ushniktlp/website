@@ -344,7 +344,7 @@
                                 <h3 class="wow fadeInUp" data-wow-delay=".5s">
                                     Send Your Message!
                                 </h3>
-                                <form action="#" id="contact-form" method="POST" class="contact-form-items">
+                                <form  id="contact-form"  class="contact-form-items">
                                     <div class="row g-4">
                                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
                                             <div class="form-clt">
@@ -568,3 +568,41 @@ Hyderabad
         <script src="../assets/js/main.min.js"></script>
     </body>
 </html>
+<script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+        const formData = new FormData(this);
+        fetch("https://formsubmit.co/ajax/f57a729df8185cfc061a82821cda9404 ", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Message Sent!",
+                    text: "Your message has been successfully sent.",
+                    confirmButtonColor: "#3085d6"
+                });
+                document.getElementById("contact-form").reset();
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops!",
+                    text: "Failed to send the message. Please try again.",
+                    confirmButtonColor: "#d33"
+                });
+            }
+        })
+        .catch(error => {
+            Swal.fire({
+                icon: "warning",
+                title: "Network Error!",
+                text: "Please check your internet connection.",
+                confirmButtonColor: "#f39c12"
+            });
+            console.error("Error:", error);
+        });
+    });
+</script>
