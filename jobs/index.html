@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    
+<head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Prem Chand Dasari">
+        <meta name="description" content="Ushnik - IT Solution & Technology">
+        <!-- ======== Page title ============ -->
+        <title>Ushnik - IT Solution & Technology </title>
+        <!--<< Favcion >>-->
+        <link rel="shortcut icon" href="../assets/img/logo/logofinal.png">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <!--<< All Min Css >>-->
+        <link rel="stylesheet" href="../assets/css/all.min.css">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="../assets/css/animate.css">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="../assets/css/meanmenu.css">
+        <!--<< Swiper Bundle.css >>-->
+        <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="../assets/css/nice-select.css">
+        <!--<< Color.css >>-->
+        <link rel="stylesheet" href="../assets/css/color.css">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="../assets/css/main.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    </head>
+    <body>
+
+        <!-- Preloader Start -->
+        <div id="preloader" class="preloader">
+            <div class="animation-preloader">
+                <img src="../assets/img/logo/loader.png" alt="logo" 
+                style="width: 100px; height: 100px; 
+                       animation: fadeInOut 2s infinite; 
+                       display: block; margin: 0 auto; 
+                       border-radius: 300px;">
+           
+                <div class="txt-loading" style="text-align: center;">
+                    <span data-text-preloader="U" class="letters-loading" style="animation: fadeInOut 2s infinite;">U</span>
+                    <span data-text-preloader="S" class="letters-loading" style="animation: fadeInOut 2s infinite 0.2s;">S</span>
+                    <span data-text-preloader="H" class="letters-loading" style="animation: fadeInOut 2s infinite 0.4s;">H</span>
+                    <span data-text-preloader="N" class="letters-loading" style="animation: fadeInOut 2s infinite 0.6s;">N</span>
+                    <span data-text-preloader="I" class="letters-loading" style="animation: fadeInOut 2s infinite 0.8s;">I</span>
+                    <span data-text-preloader="K" class="letters-loading" style="animation: fadeInOut 2s infinite 1s;">K</span>
+                </div>
+                
+                <p class="text-center" style="animation: fadeInOut 2s infinite; text-align: center;">Loading</p>
+                
+                <style>
+                @keyframes fadeInOut {
+                    0% { opacity: 0; }
+                    50% { opacity: 1; }
+                    100% { opacity: 0; }
+                }
+                </style>
+                
+                
+            </div>
+            <div class="loader">
+                <div class="row">
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back To Top Start -->
+        <button id="back-top" class="back-to-top">
+            <i class="fa-regular fa-arrow-up"></i>
+        </button>
+
+        <!--<< Mouse Cursor Start >>-->  
+        <div class="mouse-cursor cursor-outer"></div>
+        <div class="mouse-cursor cursor-inner"></div>
+        <!-- Offcanvas Area Start -->
+        <div class="fix-area">
+            <div class="offcanvas__info">
+                <div class="offcanvas__wrapper">
+                    <div class="offcanvas__content">
+                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                            <div class="offcanvas__logo">
+                                <a href="index.html">
+                                    <img src="../assets/img/logo/new.png" alt="logo-img" style="width: auto; height: 40px;">
+                                </a>
+                            </div>
+                            <div class="offcanvas__close">
+                                <button>
+                                <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text d-none d-xl-block">
+                            Nullam dignissim, ante scelerisque the  is euismod fermentum odio sem semper the is erat, a feugiat leo urna eget eros. Duis Aenean a imperdiet risus.
+                        </p>
+                        <div class="mobile-menu fix mb-3"></div>
+                        <div class="offcanvas__contact">
+                            <h4>Contact Info</h4>
+                            <ul>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon">
+                                        <i class="fal fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a target="_blank" href="#">Flat 107, Gayathri Nest Apartments, Telecom Nagar, Gachibowli, Hyderabad-500032</a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="fal fa-envelope"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a href="mailto:info@ushnik.in"><span class="mailto:info@ushnik.in">info@ushnik.in</span></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="fal fa-clock"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a target="_blank" href="#">Mod-Sat, 10am -04pm</a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="far fa-phone"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a href="tel:+919440389562">+919440389562</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="header-button mt-4">
+                                
+                            </div>
+                            <a href="../contact/" class="theme-btn">Let’s Talk <i class="fa-solid fa-arrow-right"></i></a>
+                            <div class="social-icon d-flex align-items-center">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas__overlay"></div>
+
+        <!-- Header Section Start -->
+        <header id="header-sticky" class=" header-1 header-2">
+            <div class="container custom-container-44">
+                <div class="mega-menu-wrapper">
+                    <div class="header-main">
+                        <div class="logo">
+                            <a href="../" class="header-logo">
+                                <img src="../assets/img/logo/new.png" alt="logo-img" style="width: 150px;height: 120px;">
+                            </a>
+                            <a href="../" class="header-logo-2 d-none">
+                                <img src="../assets/img/logo/new.png" alt="logo-img" style="width: 150px;height: 40px;">
+                            </a>
+                        </div>
+                        <div class="header-right d-flex justify-content-end align-items-center">
+                            <div class="mean__menu-wrapper">
+                                <div class="main-menu">
+                                    <nav id="mobile-menu">
+                                        <ul>
+                                            <li class="active">
+                                                <a href="../">
+                                                    Home
+                                                </a>
+
+                                            </li>
+                                            <li class="has-dropdown active d-xl-none">
+                                                <a href="../" class="border-none">
+                                                Home
+                                                </a>
+                                            </li>
+                                            <li class="has-dropdown">
+                                                <a href="../contact/">
+                                                    Contact
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../about/">
+                                                    About
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../service/">
+                                                    Services
+                                                </a>
+                                            </li>
+                                            <!-- <li>
+                                                <a href="../team/">
+                                                    Team
+                                                </a>
+                                            </li> -->
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="contact-items">
+                                <div class="icon">
+                                    <i class="fa-regular fa-phone"></i>
+                                </div>
+                                <div class="content">
+                                    <span>Phone:</span>
+                                    <h6><a href="tel:+7702901217">+88 (09) 53 33 09</a></h6>
+                                </div>
+                            </div>
+                            <a href="#0" class="search-trigger search-icon"><i class="fa-regular fa-magnifying-glass"></i></a>
+                            <div class="header-button">
+                                <a href="../contact/" class="theme-btn">Let’s Talk <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                            <div class="header__hamburger d-xl-none my-auto">
+                                <div class="sidebar__toggle">
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+         <!-- Search Area Start -->
+         <div class="search-wrap">
+            <div class="search-inner">
+                <i class="fas fa-times search-close" id="search-close"></i>
+                <div class="search-cell">
+                    <form method="get">
+                        <div class="search-field-holder">
+                            <input type="search" class="main-search-input" placeholder="Search...">
+                        </div>
+                    </form>
+                </div>
+            </div>
+         </div>
+
+        <!--Breadcrumb-wrapper Start -->
+        <section class="breadcrumb-wrapper fix bg-cover" style="background-image: url(../assets/img/breadcrumb/02.jpg);">
+        <div class="right-shape">
+            <img src="../assets/img/breadcrumb/shape.png" alt="img">
+        </div>
+        <div class="bottom-shape">
+            <img src="../assets/img/breadcrumb/shape-2.png" alt="img">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="page-heading">
+                    <h2 class="wow fadeInUp" data-wow-delay=".3s">Jobs Portal</h2>
+                    <ul class="breadcrumb-list wow fadeInUp" data-wow-delay=".5s">
+                        <li>
+                            <a href="../">Home</a>
+                        </li>
+                        <li><i class="fa-solid fa-chevrons-right"></i></li>
+                        <li>Jobs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </section>
+        
+        <!--service Section Start -->
+        <section class="service-section2 section-padding mt-0">
+            <div class="container">
+                  <!-- Card 1 -->
+  <div class="card mb-4 shadow-sm" style="border-radius: 1rem;">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <div>
+          <h5 class="card-title fw-bold mb-1">Hiring Digital Solution Architect with Datamatics - Mumbai/Bangalore</h5>
+          <h6 class="card-subtitle text-muted mb-2">Datamatics <span class="text-warning">★ 3.5</span> <small class="text-muted">(2.1K Reviews)</small></h6>
+        </div>
+        <div class="d-flex align-items-start">
+          <div class="me-2">
+            <div class="badge bg-danger text-white rounded-pill">New</div>
+          </div>
+          <div style="width: 48px; height: 48px;" class="bg-danger text-white d-flex justify-content-center align-items-center rounded">
+            <strong style="font-size: 24px;">D</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-3 d-flex flex-wrap text-muted small">
+        <div class="me-4 mb-2"><i class="bi bi-briefcase"></i> 12-20 Yrs</div>
+        <div class="me-4 mb-2"><i class="bi bi-currency-rupee"></i> 35-45 Lacs PA</div>
+        <div class="me-4 mb-2"><i class="bi bi-geo-alt"></i> Mumbai, Bengaluru, Mumbai (All Areas)</div>
+      </div>
+
+      <p class="card-text small text-muted mt-2">
+        In addition the candidate needs to be able to demonstrate experience of microservices and micro...
+        In addition the candidate needs to be able to demonstrate experience of microservices and micro...
+        In addition the candidate needs to be able to demonstrate experience of microservices and micro...
+      </p>
+
+      <div class="d-flex flex-wrap mt-2">
+        <span class="badge bg-light text-dark border me-2 mb-2">Digital Solutions</span>
+        <span class="badge bg-light text-dark border me-2 mb-2">Solution Architecting</span>
+        <span class="badge bg-light text-dark border me-2 mb-2">Digital Innovation</span>
+        <span class="badge bg-light text-dark border me-2 mb-2">Digital Product</span>
+        <span class="badge bg-light text-dark border me-2 mb-2">Artificial Intelligence</span>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card mb-4 shadow-sm" style="border-radius: 1rem;">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <div>
+          <h5 class="card-title fw-bold mb-1">Technical Project Manager</h5>
+          <h6 class="card-subtitle text-muted mb-2">Datamatics <span class="text-warning">★ 3.5</span> <small class="text-muted">(2.1K Reviews)</small></h6>
+        </div>
+        <div class="d-flex align-items-start">
+          <div class="me-2">
+            <div class="badge bg-danger text-white rounded-pill">New</div>
+          </div>
+          <div style="width: 48px; height: 48px;" class="bg-danger text-white d-flex justify-content-center align-items-center rounded">
+            <strong style="font-size: 24px;">D</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-3 d-flex flex-wrap text-muted small">
+        <div class="me-4 mb-2"><i class="bi bi-briefcase"></i> 12-18 Yrs</div>
+        <div class="me-4 mb-2"><i class="bi bi-currency-rupee"></i> Not disclosed</div>
+        <div class="me-4 mb-2"><i class="bi bi-geo-alt"></i> Bangalore Rural, Bengaluru, Mumbai (All Areas)</div>
+      </div>
+
+      <p class="card-text small text-muted mt-2">
+        Location: Bangalore (Bannerghatta). Work Mode: Work from office. Must Skill: Experience in tech...
+      </p>
+
+      <div class="d-flex flex-wrap mt-2">
+        <span class="badge bg-light text-dark border me-2 mb-2">Technical Project Management</span>
+        <span class="badge bg-light text-dark border me-2 mb-2">TPM</span>
+        <span class="badge bg-light text-dark border me-2 mb-2">Software Project Management</span>
+        <span class="badge bg-light text-dark border me-2 mb-2">Agile Methodology</span>
+      </div>
+
+      
+    </div>
+  </div>
+            </div>
+        </section>
+           <!-- Footer-section Start -->
+           <section class="footer-section fix bg-cover" style="background-color: #222222;">
+            <div class="container">
+                <div class="footer-widget-wrapper">
+                    <div class="row">
+                        <div class="col-xl-4 col-sm-6 col-md-6 col-lg-4 wow fadeInUp" data-wow-delay=".2s">
+                            <div class="single-footer-widget">
+                                <div class="widget-head">
+                                    <a href="index.html">
+                                        <img src="../assets/img/logo/white-logo.png" alt="logo-img" style="width: 150px;height: 75px;">
+                                    </a>
+                                </div>
+                                <div class="footer-content">
+                                    <p>
+                                        We provide innovative solutions to <br> drive growth, streamline operations, <br> & achieve your goals.
+                                    </p>
+                                    <div class="search-widget">
+                                        <input type="email" id="email3" placeholder="Your email">
+                                        <button type="submit" class="theme-btn">
+                                            <i class="fa-regular fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                    <div class="social-icon">
+                                        <a href="https://wa.me/919440389562" target="_blank"><i class="fab fa-whatsapp"></i></a> 
+                                        <a href="#"><i class="fa-solid fa-basketball"></i></a>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-sm-6 col-md-6 col-lg-4  wow fadeInUp" data-wow-delay=".4s">
+                            <div class="single-footer-widget">
+                                <div class="widget-head">
+                                    <h3>Useful Links</h3>
+                                </div>
+                                <ul class="list-items">
+                                    <li>
+                                        <a href="./about/">
+                                            <i class="fa-solid fa-chevrons-right"></i>
+                                            About Us
+                                        </a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="./team/">
+                                            <i class="fa-solid fa-chevrons-right"></i>
+                                            Our Team
+                                        </a>
+                                    </li> -->
+                                    <li>
+                                        <a href="contact/">
+                                            <i class="fa-solid fa-chevrons-right"></i>
+                                            Contact Us
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-chevrons-right"></i>
+                                            Privacy Policy
+                                        </a>
+                                    </li>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 col-md-6 col-lg-4 ps-lg-5 wow fadeInUp" data-wow-delay=".6s">
+                            <div class="single-footer-widget">
+                                <div class="widget-head">
+                                    <h3>Our Services</h3>
+                                </div>
+                                <ul class="list-items">
+                                    <li>
+                                        <a href="../service/ai-ml/">
+                                            <i class="fa-solid fa-chevrons-right"></i>
+                                            Ai & Ml
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/cybersecurity/">
+                                            <i class="fa-solid fa-chevrons-right"></i>
+                                            Cyber Security
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/business/">
+                                            <i class="fa-solid fa-chevrons-right"></i>
+                                            Business Consulting
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/">
+                                            <i class="fa-solid fa-chevrons-right"></i>
+                                            More..
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 col-md-6 col-lg-4 ps-xl-5 wow fadeInUp" data-wow-delay=".8s">
+                            <div class="single-footer-widget">
+                                <div class="widget-head">
+                                    <h3>Our Contact</h3>
+                                </div>
+                                <div class="contact-info">
+                                    <ul class="contact-item">
+                                        <li>
+                                            <span>24/7 Call Us:</span>
+                                        </li>
+                                    <li>
+                                        <i class="fa-solid fa-phone"></i>
+                                        <a href="tel:+919440389562">+91 9440389562</a>
+                                    </li>
+                                    </ul>
+                                    <ul class="contact-item">
+                                        <li>
+                                            <span>Send Message:</span>
+                                        </li>
+                                    <li>
+                                        <i class="fa-regular fa-envelope"></i>
+                                        <a href="mailto:Ushnik@gmail.com">
+                                            info@ushnik.in
+                                        </a>
+                                    </li>
+                                    </ul>
+                                    <ul class="contact-item">
+                                        <li>
+                                            <span>Our Address:</span>
+                                        </li>
+                                    <li>
+                                        <i class="fa-regular fa-envelope"></i>
+                                        Ratnam chambers
+<!-- H.No.1 62/172,
+Plot no . 172 -->
+Behind D-Mart,
+Kavuri hills,
+Phase -II
+Hyderabad
+                                    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="footer-wrapper">
+                        <p class="wow fadeInUp" data-wow-delay=".3s">
+                            © 2025 Ushnik, All Rights Reserved
+                        </p>
+                        <ul class="bottom-list wow fadeInUp" data-wow-delay=".5s">
+                            <li>Terms & Condition</li>
+                        </ul>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!--<< All JS Plugins >>-->
+        <script src="../assets/js/jquery-3.7.1.min.js"></script>
+        <!--<< Viewport Js >>-->
+        <script src="../assets/js/viewport.jquery.js"></script>
+        <!--<< Bootstrap Js >>-->
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/jquery.nice-select.min.js"></script>
+        <!--<< Waypoints Js >>-->
+        <script src="../assets/js/jquery.waypoints.js"></script>
+        <!--<< Counterup Js >>-->
+        <script src="../assets/js/jquery.counterup.min.js"></script>
+        <!--<< Swiper Slider Js >>-->
+        <script src="../assets/js/swiper-bundle.min.js"></script>
+        <!--<< MeanMenu Js >>-->
+        <script src="../assets/js/jquery.meanmenu.min.js"></script>
+        <!--<< Magnific Popup Js >>-->
+        <script src="../assets/js/jquery.magnific-popup.min.js"></script>
+        <!--<< Wow Animation Js >>-->
+        <script src="../assets/js/wow.min.js"></script>
+        <!--<< Main.js >>-->
+        <script src="../assets/js/main.min.js"></script>
+    </body>
+
+</html>
+
+<script>
+    window.onload = function() {
+        fetch("https://script.google.com/macros/s/AKfycbzymslJjxaMfuSeNFVFq-UOzCkgaDRb0uvsm2ddSR9L3B3aHOL09g-q6889nDR1CVem/exec")
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (!data) {
+                    throw new Error('No data received');
+                }
+            })
+            .catch(err => {
+                console.error("Error:", err);
+                alert('Unable to load job listings. Please try again later.');
+            });
+    }
+</script>
