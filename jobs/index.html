@@ -431,7 +431,7 @@
         }
     
         const formData = new FormData(form);
-const data = {
+    const data = {
     jobDetails: {
         id: formData.get('jobId') || '',
         title: formData.get('jobTitle') || '',
@@ -446,10 +446,9 @@ const data = {
         phone: formData.get('applicantnumber') || '',
         message: formData.get('applicantmessage') || ''
     }
-};
-
-// Flatten data for FormSubmit
-const flatData = {
+    };
+    
+    const flatData = {
     "Job ID": data.jobDetails.id,
     "Job Title": data.jobDetails.title,
     "Company": data.jobDetails.company,
@@ -460,46 +459,41 @@ const flatData = {
     "Applicant Email": data.applicant.email,
     "Applicant Phone": data.applicant.phone,
     "Message": data.applicant.message
-};
-
-// Create payload
-const payload = new URLSearchParams(flatData);
-
-// Handle UI feedback
-const submitBtn = form.querySelector('button[type="submit"]');
-const originalText = submitBtn.innerHTML;
-submitBtn.disabled = true;
-submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Submitting...';
-
-// ✅ Send correct data
-fetch('https://formsubmit.co/ajax/f57a729df8185cfc061a82821cda9404', {
+    };
+    const payload = new URLSearchParams(flatData);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Submitting...';
+    
+    fetch('https://formsubmit.co/ajax/f57a729df8185cfc061a82821cda9404', {
     method: 'POST',
     headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'  // ✅ CORRECT MIME
+        'Content-Type': 'application/x-www-form-urlencoded'  
     },
-    body: payload  // ✅ CORRECT BODY
-})
-.then(response => {
+    body: payload  
+    })
+    .then(response => {
     if (!response.ok) {
         throw new Error('Network response was not ok');
     }
     return response.json();
-})
-.then(data => {
+    })
+    .then(data => {
     alert('Application submitted successfully!');
     const modal = bootstrap.Modal.getInstance(document.getElementById('applyModal'));
     modal.hide();
-    form.reset(); // Optional: Reset form
-})
-.catch(error => {
+    form.reset(); 
+    })
+    .catch(error => {
     console.error('Error:', error);
     alert('Failed to submit application. Please try again.');
-})
-.finally(() => {
+    })
+    .finally(() => {
     submitBtn.disabled = false;
     submitBtn.innerHTML = originalText;
-});
-
+    });
+    
     }
     function createHiddenFields(jobData) {
         return `
