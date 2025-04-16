@@ -324,12 +324,9 @@
                 if (!data || data.length === 0) {
                     throw new Error('No data received');
                 }
-    
                 container.innerHTML = '';
-    
-                // Create job cards
                 data.forEach(job => {
-                    const jobId = generateJobId(); // Generate unique ID for each job
+                    const jobId = generateJobId(); 
                     const jobCard = createJobCard(job, jobId);
                     container.innerHTML += jobCard;
                 });
@@ -396,11 +393,7 @@
     function apply(jobData) {
         const applyModal = new bootstrap.Modal(document.getElementById('applyModal'));
         const modalBody = document.querySelector('.modal-body');
-        
-        // Clear previous job details
         modalBody.innerHTML = '';
-        
-        // Add new content
         const content = `
             ${createHiddenFields(jobData)}
             ${createJobDetailsSection(jobData)}
@@ -422,7 +415,7 @@
         return result;
     }
     function dubmt(event) {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault(); 
         
         const form = document.getElementById("jobApplicationForm");
         if (!form.checkValidity()) {
