@@ -257,6 +257,43 @@
             </div>
         </div>
     </section>
+    <div class="modal fade" id="applyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form id="jobApplicationForm">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="applyModalLabel">Job Application</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Job details will be inserted here -->
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="hidden" id="jobId">
+                            <input type="text" class="form-control" id="fullName" name="applicantname" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailAddress" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="emailAddress" name="applicantemail" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="phoneNumber" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phoneNumber" name="applicantnumber" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="message" class="form-label">Message (Optional)</label>
+                            <textarea class="form-control" id="message" rows="3" name="applicantmessage"></textarea>
+                          </div>
+                        <!-- ... rest of the form ... -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" onclick="dubmt(event)" class="btn btn-primary">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <!--<< All JS Plugins >>-->
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <!--<< Viewport Js >>-->
@@ -282,52 +319,92 @@
 
 </html>
 <script>
-    window.onload = function() {
-        const container = document.querySelector('.jobdata');
+let isLoading = false;
+let requestCount = 0;
+const MAX_REQUESTS = 3;
 
-        fetch("https://script.google.com/macros/s/AKfycbzymslJjxaMfuSeNFVFq-UOzCkgaDRb0uvsm2ddSR9L3B3aHOL09g-q6889nDR1CVem/exec")
-            .then(res => res.json())
-            .then(data => {
-                if (!data || data.length === 0) {
-                    throw new Error('No data received');
-                }
-
-                container.innerHTML = '';
-
-                data.forEach(job => {
-                    const jobCard = `
-                        <div class="card mb-4 shadow-sm" style="border-radius: 1rem;">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <h5 class="card-title fw-bold mb-1">${job.title}</h5>
-                                        <h6 class="card-subtitle text-muted mb-2">${job.company}</h6>
-                                    </div>
-                                    <div class="d-flex align-items-start">
-                                        <img src="${job.logo}" alt="${job.company}" style="width:48px; height:48px; object-fit:contain; border-radius: 50%;">
-                                    </div>
-                                </div>
-                                <div class="mt-3 d-flex flex-wrap text-muted small">
-                                    <div class="me-4 mb-2"><i class="bi bi-briefcase"></i> ${job.experience}</div>
-                                    <div class="me-4 mb-2"><i class="bi bi-currency-rupee"></i> ${job.package}</div>
-                                    <div class="me-4 mb-2"><i class="bi bi-geo-alt"></i> ${job.joblocation}</div>
-                                </div>
-                                <p class="card-text small text-muted mt-2">${job.description}</p>
-                            </div>
-                        </div>
-                    `;
-                    container.innerHTML += jobCard;
-                });
-            })
-            .catch(err => {
-                console.error("Error:", err);
-                container.innerHTML = `
-                    <div class="alert alert-danger" role="alert">
-                        Unable to load job listings. Please try again later.
-                    </div>
-                `;
-            });
+window.onload = function() {
+    const container = document.querySelector('.jobdata');
+    
+    if (isLoading || requestCount >= MAX_REQUESTS) {
+        console.warn('Request blocked - too many attempts or already loading');
+        return;
     }
+
+    isLoading = true;
+    requestCount++;
+
+    fetch("https://script.google.com/macros/s/AKfycbzymslJjxaMfuSeNFVFq-UOzCkgaDRb0uvsm2ddSR9L3B3aHOL09g-q6889nDR1CVem/exec")
+        .then(res => {
+            if (!res.ok) {
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
+            return res.json();
+        })
+        .then(data => {
+            if (!data || data.length === 0) {
+                throw new Error('No data received');
+            }
+
+            container.innerHTML = '';
+
+            // Create job cards
+            data.forEach(job => {
+                const jobId = generateJobId(); // Generate unique ID for each job
+                const jobCard = createJobCard(job, jobId);
+                container.innerHTML += jobCard;
+            });
+        })
+        .catch(err => {
+            console.error("Error:", err);
+            container.innerHTML = createErrorAlert();
+        })
+        .finally(() => {
+            isLoading = false;
+        });
+};
+
+function createJobCard(job, jobId) {
+    return `
+        <div class="card mb-4 shadow-sm" style="border-radius: 1rem;">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 class="card-title fw-bold mb-1">${job.title || 'No Title'}</h5>
+                        <h6 class="card-subtitle text-muted mb-2">${job.company || 'Company Name'}</h6>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <button type="button" class="btn btn-outline-primary" 
+                            onclick='apply(${JSON.stringify({
+                                id: jobId,
+                                title: job.title || '',
+                                company: job.company || '',
+                                experience: job.experience || '',
+                                package: job.package || '',
+                                location: job.joblocation || ''
+                            }).replace(/'/g, "\\'")})'> 
+                            Apply Now
+                        </button>
+                        <img src="${job.logo || '../assets/img/default-logo.png'}" 
+                             alt="${job.company || 'Company Logo'}" 
+                             style="width:48px; height:48px; object-fit:contain; border-radius: 50%;"
+                             >
+                    </div>
+                </div>
+                <p class="card-text small text-muted mt-2">${job.description || 'No description available'}</p>
+            </div>
+        </div>
+    `;
+}
+
+function createErrorAlert() {
+    return `
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Unable to load job listings</h4>
+            <p>Please try again later. If the problem persists, contact support.</p>
+        </div>
+    `;
+}
 </script>
 <script>
     $(document).ready(function() {
@@ -337,3 +414,145 @@
             }, 1000);
         });
     });
+    function apply(jobData) {
+        const applyModal = new bootstrap.Modal(document.getElementById('applyModal'));
+        const modalBody = document.querySelector('.modal-body');
+        
+        // Clear previous job details
+        modalBody.innerHTML = '';
+        
+        // Add new content
+        const content = `
+            ${createHiddenFields(jobData)}
+            ${createJobDetailsSection(jobData)}
+            ${createApplicationForm()}
+        `;
+        
+        modalBody.innerHTML = content;
+        document.getElementById('applyModalLabel').textContent = `Apply for ${jobData.title}`;
+        
+        applyModal.show();
+    }
+
+    function generateJobId() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let result = '';
+        for (let i = 0; i < 4; i++) {
+            result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return result;
+    }
+    function dubmt(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        const form = document.getElementById("jobApplicationForm");
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+    
+        const formData = new FormData(form);
+        const data = {
+            jobDetails: {
+                id: formData.get('jobId') || '',
+                title: formData.get('jobTitle') || '',
+                company: formData.get('company') || '',
+                experience: formData.get('experience') || '',
+                package: formData.get('package') || '',
+                location: formData.get('location') || ''
+            },
+            applicant: {
+                name: formData.get('applicantname') || '',
+                email: formData.get('applicantemail') || '',
+                phone: formData.get('applicantnumber') || '',
+                message: formData.get('applicantmessage') || ''
+            }
+        };
+    
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Submitting...';
+        console.log(JSON.stringify(data));
+        // Make API call
+        fetch('https://formsubmit.co/ajax/f57a729df8185cfc061a82821cda9404', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Show success message
+            alert('Application submitted successfully!');
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('applyModal'));
+            modal.hide();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to submit application. Please try again.');
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        });
+    }
+    function createHiddenFields(jobData) {
+        return `
+            <input type="hidden" name="jobId" value="${jobData.id || ''}">
+            <input type="hidden" name="jobTitle" value="${jobData.title || ''}">
+            <input type="hidden" name="company" value="${jobData.company || ''}">
+            <input type="hidden" name="experience" value="${jobData.experience || ''}">
+            <input type="hidden" name="package" value="${jobData.package || ''}">
+            <input type="hidden" name="location" value="${jobData.location || ''}">
+        `;
+    }
+
+    function createJobDetailsSection(jobData) {
+        return `
+            <div class="job-details mb-4">
+                <h6 class="mb-3">Job Details</h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Title:</strong> ${jobData.title || 'N/A'}</p>
+                        <p><strong>Company:</strong> ${jobData.company || 'N/A'}</p>
+                        <p><strong>Experience:</strong> ${jobData.experience || 'N/A'}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Package:</strong> ${jobData.package || 'N/A'}</p>
+                        <p><strong>Location:</strong> ${jobData.location || 'N/A'}</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        `;
+    }
+
+    function createApplicationForm() {
+        return `
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullName" name="applicantname" required>
+            </div>
+            <div class="mb-3">
+                <label for="emailAddress" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="emailAddress" name="applicantemail" required>
+            </div>
+            <div class="mb-3">
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phoneNumber" name="applicantnumber" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message (Optional)</label>
+                <textarea class="form-control" id="message" rows="3" name="applicantmessage"></textarea>
+            </div>
+        `;
+    }
+</script>
