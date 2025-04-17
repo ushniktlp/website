@@ -9,7 +9,7 @@ This repository contains the source code for a website project. The project is b
 - `css/`: Directory containing CSS files.
 - `js/`: Directory containing JavaScript files.drf
 sfsdfdfffd
-## Features
+## Featuresfg
 
 - Responsive design
 - Preloader animation
