@@ -5,7 +5,7 @@ This repository contains the source code for a website project. The project is b
 ## Project Structure
 
 - `index.html`: The main HTML file for the website.
-- `assets/`: Directory containing images, stylesheets, and other assets.sddssd
+- `assets/`: Directory containing images, stylesheets, and other asftgfgsets.sddssd
 - `css/`: Directory containing CSS files.
 - `js/`: Directory containing JavaScript files.
 
