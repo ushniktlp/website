@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <!--<< Header Area >>-->
-    
 <head>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-60TQGTJSR9"></script>
@@ -40,56 +39,86 @@
         <link rel="stylesheet" href="../assets/css/color.css">
         <!--<< Main.css >>-->
         <link rel="stylesheet" href="../assets/css/main.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+         <style>
+    .deal-badge {
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #fff;
+      background: #d32f2f;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .discount {
+      color: #d32f2f;
+      font-weight: bold;
+    }
+    .product-card {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
+    .product-img {
+      max-height: 220px;
+      object-fit: contain;
+    }
+  </style>
     </head>
     <body>
 
-        <!-- Preloader Start -->
-        <div id="preloader" class="preloader">
-            <div class="animation-preloader">
-                <img src="../assets/img/logo/loader.png" alt="logo" 
-                style="width: 100px; height: 100px; 
-                       animation: fadeInOut 2s infinite; 
-                       display: block; margin: 0 auto; 
-                       border-radius: 300px;">
-           
-                <div class="txt-loading" style="text-align: center;">
-                    <span data-text-preloader="U" class="letters-loading" style="animation: fadeInOut 2s infinite;">U</span>
-                    <span data-text-preloader="S" class="letters-loading" style="animation: fadeInOut 2s infinite 0.2s;">S</span>
-                    <span data-text-preloader="H" class="letters-loading" style="animation: fadeInOut 2s infinite 0.4s;">H</span>
-                    <span data-text-preloader="N" class="letters-loading" style="animation: fadeInOut 2s infinite 0.6s;">N</span>
-                    <span data-text-preloader="I" class="letters-loading" style="animation: fadeInOut 2s infinite 0.8s;">I</span>
-                    <span data-text-preloader="K" class="letters-loading" style="animation: fadeInOut 2s infinite 1s;">K</span>
+            <!-- Preloader Start -->
+            <div id="preloader" class="preloader">
+                <div class="animation-preloader">
+                    <img src="../assets/img/logo/loader.png" alt="logo" 
+                    style="width: 100px; height: 100px; 
+                           animation: fadeInOut 2s infinite; 
+                           display: block; margin: 0 auto; 
+                           border-radius: 300px;">
+               
+                    <div class="txt-loading" style="text-align: center;">
+                        <span data-text-preloader="U" class="letters-loading" style="animation: fadeInOut 2s infinite;">U</span>
+                        <span data-text-preloader="S" class="letters-loading" style="animation: fadeInOut 2s infinite 0.2s;">S</span>
+                        <span data-text-preloader="H" class="letters-loading" style="animation: fadeInOut 2s infinite 0.4s;">H</span>
+                        <span data-text-preloader="N" class="letters-loading" style="animation: fadeInOut 2s infinite 0.6s;">N</span>
+                        <span data-text-preloader="I" class="letters-loading" style="animation: fadeInOut 2s infinite 0.8s;">I</span>
+                        <span data-text-preloader="K" class="letters-loading" style="animation: fadeInOut 2s infinite 1s;">K</span>
+                    </div>
+                    
+                    <p class="text-center" style="animation: fadeInOut 2s infinite; text-align: center;">Loading</p>
+                    
+                    <style>
+                    @keyframes fadeInOut {
+                        0% { opacity: 0; }
+                        50% { opacity: 1; }
+                        100% { opacity: 0; }
+                    }
+                    </style>
+                    
+                    
                 </div>
-                
-                <p class="text-center" style="animation: fadeInOut 2s infinite; text-align: center;">Loading</p>
-                
-                <style>
-                @keyframes fadeInOut {
-                    0% { opacity: 0; }
-                    50% { opacity: 1; }
-                    100% { opacity: 0; }
-                }
-                </style>
-                
-                
-            </div>
-            <div class="loader">
-                <div class="row">
-                    <div class="col-3 loader-section section-left">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-left">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-right">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-right">
-                        <div class="bg"></div>
+                <div class="loader">
+                    <div class="row">
+                        <div class="col-3 loader-section section-left">
+                            <div class="bg"></div>
+                        </div>
+                        <div class="col-3 loader-section section-left">
+                            <div class="bg"></div>
+                        </div>
+                        <div class="col-3 loader-section section-right">
+                            <div class="bg"></div>
+                        </div>
+                        <div class="col-3 loader-section section-right">
+                            <div class="bg"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
         <!-- Back To Top Start -->
         <button id="back-top" class="back-to-top">
@@ -99,6 +128,7 @@
         <!--<< Mouse Cursor Start >>-->  
         <div class="mouse-cursor cursor-outer"></div>
         <div class="mouse-cursor cursor-inner"></div>
+        
         <!-- Offcanvas Area Start -->
         <div class="fix-area">
             <div class="offcanvas__info">
@@ -194,13 +224,8 @@
                                                 </a>
 
                                             </li>
-                                            <li class="has-dropdown active d-xl-none">
-                                                <a href="../" class="border-none">
-                                                Home
-                                                </a>
-                                            </li>
                                             <li class="has-dropdown">
-                                                <a href="../contact/">
+                                                <a href="./">
                                                     Contact
                                                 </a>
                                             </li>
@@ -211,7 +236,7 @@
                                             </li>
                                             <li>
                                                 <a href="../service/">
-                                                    Services
+                                                    Service
                                                 </a>
                                             </li>
                                             <li>
@@ -239,7 +264,7 @@
                             </div>
                             <a href="#0" class="search-trigger search-icon"><i class="fa-regular fa-magnifying-glass"></i></a>
                             <div class="header-button">
-                                <a href="../contact/" class="theme-btn">Let’s Talk <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="../../contact/" class="theme-btn">Let’s Talk <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                             <div class="header__hamburger d-xl-none my-auto">
                                 <div class="sidebar__toggle">
@@ -265,297 +290,89 @@
                 </div>
             </div>
          </div>
-
-        <!--Breadcrumb-wrapper Start -->
-        <section class="breadcrumb-wrapper fix bg-cover" style="background-image: url(../assets/img/);">
-        <div class="right-shape">
-            <img src="../assets/img/breadcrumb/shape.png" alt="img">
-        </div>
-        <div class="bottom-shape">
-            <img src="../assets/img/breadcrumb/shape-2.png" alt="img">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="page-heading">
-                    <h2 class="wow fadeInUp" data-wow-delay=".3s">Our Services</h2>
-                    <ul class="breadcrumb-list wow fadeInUp" data-wow-delay=".5s">
-                        <li>
-                            <a href="../">Home</a>
-                        </li>
-                        <li><i class="fa-solid fa-chevrons-right"></i></li>
-                        <li>Our Services</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        </section>
         
-        <!--service Section Start -->
-        <section class="service-section2 section-padding">
+         <!--Breadcrumb-wrapper Start -->
+         <section class="breadcrumb-wrapper fix bg-cover" style="background-image: url(https://res.cloudinary.com/dwru80srf/image/upload/v1757415049/5607721_tvcc6w.jpg);">
+            <div class="right-shape">
+                <img src="../assets/img/breadcrumb/shape.png" alt="img">
+            </div>
+            <div class="bottom-shape">
+                <img src="../assets/img/breadcrumb/shape-2.png" alt="img">
+            </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="service-card-items">
-                            <div class="service-image">
-                                <img src="../assets/img/WhatsApp Image 2025-06-19 at 1.01.54 AM.jpeg" alt="img">
-                                <div class="service-content">
-                                    <div class="content-item">
-                                        <div class="content">
-                                            <div class="text">
-                                                <h4>
-                                                    <a href="./ai-ml/">
-                                                        AI/ML
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-right"></i>
-                                        </div>
-                                    </div>
-                                    <div class="service-bottom">
-                                        <p>
-                                            Harness the power of Generative AI and advanced machine learning
-                                        </p>
-                                        <div class="service-btn">
-                                            <a href="./ai-ml/" class="link-btn">More Details<i class="fa-solid fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="page-heading">
+                        <h2 class="wow fadeInUp" data-wow-delay=".3s">Shop</h2>
+                        <ul class="breadcrumb-list wow fadeInUp" data-wow-delay=".5s">
+                            <li>
+                                <a href="../">Home</a>
+                            </li>
+                            <li><i class="fa-solid fa-chevrons-right"></i></li>
+                            <li>Shop</li>
+                        </ul>
                     </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                        <div class="service-card-items">
-                            <div class="service-image">
-                                <img src="../assets/img/WhatsApp Image 2025-06-19 at 1.03.39 AM.jpeg" alt="img">
-                                <div class="service-content">
-                                    <div class="content-item">
-                                        <div class="content">
-                                            <div class="text">
-                                                <h4>
-                                                    <a href="./cybersecurity/">
-                                                        Cybersecurity
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-right"></i>
-                                        </div>
-                                    </div>
-                                    <div class="service-bottom">
-                                        <p>
-                                            Protect your digital assets with cutting-edge security strategies, designed to safeguard your business
-                                        </p>
-                                        <div class="service-btn">
-                                            <a href="./cybersecurity/" class="link-btn">More Details<i class="fa-solid fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                        <div class="service-card-items">
-                            <div class="service-image">
-                                <img src="../assets/img/programming-background-collage.jpg" alt="img">
-                                <div class="service-content">
-                                    <div class="content-item">
-                                        <div class="content">
-                                            <div class="text">
-                                                <h4>
-                                                    <a href="./service/web-development/">
-                                                        Web Technologies
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-right"></i>
-                                        </div>
-                                    </div>
-                                    <div class="service-bottom">
-                                        <p>
-                                            From design to deployment, we craft seamless, scalable, and responsive web experiences 
-                                        </p>
-                                        <div class="service-btn">
-                                            <a href="./service/web-development/" class="link-btn">More Details<i class="fa-solid fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                        <div class="service-card-items">
-                            <div class="service-image">
-                                <img src="../assets/img/WhatsApp Image 2025-06-19 at 1.05.58 AM.jpeg" alt="img">
-                                <div class="service-content">
-                                    <div class="content-item">
-                                        <div class="content">
+                </div>
+            </div>
+         </section>
 
-                                            <div class="text">
-                                                <h4>
-                                                    <a href="./business/">
-                                                        Business Consulting
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-right"></i>
-                                        </div>
-                                    </div>
-                                    <div class="service-bottom">
-                                        <p>
-                                            Enhance decision-making, and accelerate business transformation.
+         <!-- Shop Section Start -->
+        <section class="contact-section section-padding">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="row g-4">
+    <!-- Product 1 -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card h-100">
+        <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/e/x/e/-original-imah4jyw4fpqe7ru.jpeg?q=70&crop=false" class="card-img-top product-img" alt="MacBook">
+        <div class="card-body">
+          <span class="deal-badge">30% discount </span>
+          <h5 class="card-title mt-2">₹83,990 <small class="text-muted text-decoration-line-through">₹1,29,900</small></h5>
+          <p class="card-text">Apple iPhone 16 Pro 256GB</p>
+        </div>
+      </div>
+    </div>
 
-                                        </p>
-                                        <div class="service-btn">
-                                            <a href="./business/" class="link-btn">More Details<i class="fa-solid fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="service-card-items">
-                            <div class="service-image">
-                                <img src="../assets/img/service/08.jpg" alt="img">
-                                <div class="service-content">
-                                    <div class="content-item">
-                                        <div class="content">
-                                            <div class="icon">
-                                                <img src="../assets/img/icon/s4.svg" alt="img">
-                                            </div>
-                                            <div class="text">
-                                                <h4>
-                                                    <a href="../service/sap/">
-                                                        SAP Modules
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-right"></i>
-                                        </div>
-                                    </div>
-                                    <div class="service-bottom">
-                                        <p>
-                                            Revolutionize your enterprise with SAP S/4HANA and other advanced SAP solutions.
-                                        </p>
-                                        <div class="service-btn">
-                                            <a href="../service/sap/" class="link-btn">More Details<i class="fa-solid fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                        <div class="service-card-items">
-                            <div class="service-image">
-                                <img src="../assets/img/WhatsApp Image 2025-06-19 at 1.09.16 AM.jpeg" alt="img">
-                                <div class="service-content">
-                                    <div class="content-item">
-                                        <div class="content">
+     <div class="col-md-3 col-sm-6">
+      <div class="card product-card h-100">
+        <img src="https://vsprod.vijaysales.com/media/catalog/product/2/3/232317-image.jpg?optimize=medium&fit=bounds&height=500&width=500" class="card-img-top product-img" alt="MacBook">
+        <div class="card-body">
+          <span class="deal-badge">30% discount </span>
+          <h5 class="card-title mt-2">₹96,530 <small class="text-muted text-decoration-line-through">₹1,37,900</small></h5>
+          <p class="card-text">Apple iPhone 16 Pro Max 256GB </p>
+        </div>
+      </div>
+    </div>
 
-                                            <div class="text">
-                                                <h4>
-                                                    <a href="../service/it-testing/">
-                                                        IT Testing & QA
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-right"></i>
-                                        </div>
-                                    </div>
-                                    <div class="service-bottom">
-                                        <p>
-                                            Our rigorous testing methodologies—spanning performance, functionality, and security
-                                        </p>
-                                        <div class="service-btn">
-                                            <a href="../service/web/it-testing/" class="link-btn">More Details<i class="fa-solid fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                        <div class="service-card-items">
-                            <div class="service-image">
-                                <img src="../assets/img/WhatsApp Image 2025-06-19 at 1.22.19 AM.jpeg" alt="img">
-                                <div class="service-content">
-                                    <div class="content-item">
-                                        <div class="content">
-                                           
-                                            <div class="text">
-                                                <h4>
-                                                    <a href="../service/product-development/">
-                                                        Product Development
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-right"></i>
-                                        </div>
-                                    </div>
-                                    <div class="service-bottom">
-                                        <p>
-                                            Innovate with custom software solutions built to scale. We bring ideas to life with Agile methodologies
-                                        </p>
-                                        <div class="service-btn">
-                                            <a href="../service/product-development/" class="link-btn">More Details<i class="fa-solid fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="service-card-items">
-                            <div class="service-image">
-                                <img src="../assets/img/occupations-career-employment-recruitment-position-concept.jpg" alt="img">
-                                <div class="service-content">
-                                    <div class="content-item">
-                                        <div class="content">
-                                            
-                                            <div class="text">
-                                                <h4>
-                                                    <a href="../service/staffing/">
-                                                        Staffing Service
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="arrow-icon">
-                                            <i class="fa-solid fa-arrow-right"></i>
-                                        </div>
-                                    </div>
-                                    <div class="service-bottom">
-                                        <p>
-                                            Finding and placing top executives, senior managers, and leaders who can drive your business forward.
-                                            </p>
-                                        <div class="service-btn">
-                                            <a href="../service/staffing/" class="link-btn">More Details<i class="fa-solid fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
+    <!-- Product 2 -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card h-100">
+        <img src="https://rukminim2.flixcart.com/image/612/612/k0o69ow0/smartwatch/p/e/k/mwwe2hn-a-apple-original-imafkffxzcxf3gyz.jpeg?q=70" class="card-img-top product-img" alt="OnePlus CE5">
+        <div class="card-body">
+          <span class="deal-badge">30% discount </span>
+          <!-- <h5 class="card-title mt-2">₹28,997 <small class="text-muted text-decoration-line-through">₹35,000</small></h5> -->
+          <p class="card-text">Apple Watch 5 All Models</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card h-100">
+        <img src="https://www.menakart.com/media/catalog/product/cache/896b03ee9de8c3ad5dd6cd500ebadfa6/x/_/x_162_-_2025-09-05t151414.729_1_3.jpg" class="card-img-top product-img" alt="OnePlus CE4 Lite">
+        <div class="card-body">
+          <span class="deal-badge">30% discount </span>
+          <h5 class="card-title mt-2">₹74,193 <small class="text-muted text-decoration-line-through">₹1,05,990</small></h5>
+          <p class="card-text">Apple MacBook Air 13-inch 2025, M4 Chip 10-Core CPU 10-Core GPU, 16GB RAM, 512GB SSD, macOS Sequoia, Sky Blue, MC6U4</p>
+        </div>
+      </div>
+    </div>
+
+
                 </div>
             </div>
         </section>
-           <!-- Footer-section Start -->
-           <section class="footer-section fix bg-cover" style="background-color: #222222;">
+        <!-- Footer-section Start -->
+        <section class="footer-section fix bg-cover" style="background-color: #222222;">
             <div class="container">
                 <div class="footer-widget-wrapper">
                     <div class="row">
@@ -604,7 +421,7 @@
                                     <li>
                                         <a href="contact/">
                                             <i class="fa-solid fa-chevrons-right"></i>
-                                            Contact Us
+                                            Shop
                                         </a>
                                     </li>
                                     <li>
@@ -723,8 +540,47 @@
         <script src="../assets/js/jquery.magnific-popup.min.js"></script>
         <!--<< Wow Animation Js >>-->
         <script src="../assets/js/wow.min.js"></script>
+         <!--<< ajax-mail Js >>-->
+         <script src="../assets/js/ajax-mail.js"></script>
         <!--<< Main.js >>-->
         <script src="../assets/js/main.min.js"></script>
     </body>
-
 </html>
+<script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+        const formData = new FormData(this);
+        fetch("https://formsubmit.co/ajax/f57a729df8185cfc061a82821cda9404 ", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Message Sent!",
+                    text: "Your message has been successfully sent.",
+                    confirmButtonColor: "#3085d6"
+                });
+                document.getElementById("contact-form").reset();
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops!",
+                    text: "Failed to send the message. Please try again.",
+                    confirmButtonColor: "#d33"
+                });
+            }
+        })
+        .catch(error => {
+            Swal.fire({
+                icon: "warning",
+                title: "Network Error!",
+                text: "Please check your internet connection.",
+                confirmButtonColor: "#f39c12"
+            });
+            console.error("Error:", error);
+        });
+    });
+</script>
